@@ -21,7 +21,7 @@ async def get_id(id: str):
 
 @router.post("/book/update")
 async def update(book: Book):
-  await BookRepo.update(book)
+  await BookRepo.update(book.id,book)
   return Response(code=200, status="Ok", message="Success update data").dict(exclude_none=True)
 
 @router.delete("/book/{id}")
